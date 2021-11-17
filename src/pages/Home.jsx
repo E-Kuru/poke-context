@@ -26,7 +26,7 @@ const Home = () => {
         {pokemon.map( e =>(
             <>
             <button onClick={GetRandom}>Random Pokemon ?</button>
-            <img src={e.sprites.back_default} alt="img  " />
+            <img src={e.sprites.front_default} alt="img  " />
             <p>Name : {e.name}</p>
             <p>Height : {e.height}</p>
             <p>Type : {e.types[0].type.name}</p>
