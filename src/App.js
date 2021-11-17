@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+// import React, { useState, useEffect } from 'react';
+
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Nav from "./components/Nav";
 
 function App() {
+  function Error (){
+    return <h1>Error Pgae not found</h1>
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+
+      <Nav/>
+
+      <Switch>
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route path='*' component={Error} />
+
+      </Switch>
+    </BrowserRouter>      );
 }
 
 export default App;
