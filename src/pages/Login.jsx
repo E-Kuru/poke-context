@@ -17,9 +17,11 @@ const App = () => {
     validationSchema: Yup.object().shape({
 
 		pseudo: Yup.string()
-            .min(5, "Votre pseudo trop court"),
+            .min(5, "Votre pseudo trop court")
+            .required('Votre Pseudo est requis'),
         password: Yup.string()
             .min(5, "Password trop court")
+            .required('Votre mot de passe est requis')
     }),
 		validateOnChange: false
   })
@@ -29,7 +31,7 @@ const App = () => {
     <form onSubmit={formik.handleSubmit}>
       <input
         name="pseudo"
-        type='email'
+        type='text'
         placeholder='Entrez votre pseudo'
         value={formik.values.pseudo}
         onChange={formik.handleChange}
